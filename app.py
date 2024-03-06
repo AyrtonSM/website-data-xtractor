@@ -8,56 +8,44 @@ suggested_attrs_by_html_tag = {
     'img' : ['logo', 'img_logo', 'light-logo']
 }
 
-logo_url_map = {}
-def retrieve_logo(soup: BeautifulSoup) -> str:
 
-    # html_tags = suggested_attrs_by_html_tag.keys()
-    # for tag in html_tags:
-    #     all_known_tags = [soup.find_all(tag, {"class": attr}) for attr in suggested_attrs_by_html_tag[tag]]
-    #     print(all_known_tags)
-    # print('aaaa')
+def retrieve_logo(soup: BeautifulSoup) -> dict:
+    logo_url_map = {}
+
     keyword = 'logo'
-
     anchors = soup.find_all('a')
-    main_class_attr_name = None
-
-
 
     for anchor in anchors:
         imgs = anchor.find_all('img')
+
         if len(imgs) == 0:
             continue
 
         for img in imgs:
+            print(img)
+            if img.has_attr('class'):
+                for class_name in img['class']:
+                    if keyword in class_name:
+                        logo_url_map.update({'img': img['src']})
+                        print('ok 1')
+                        return logo_url_map
 
-            normalized_src = img['src'].lower()
+            if img.has_attr('alt'):
+                if keyword in img['alt']:
+                    logo_url_map.update({'img': img['src']})
+                    print('ok 3')
+                    return logo_url_map
 
-            if keyword in normalized_src:
+            if img.has_attr('src'):
+                normalized_src = img['src'].lower()
+                if keyword in normalized_src:
+                    logo_url_map.update({'img': img['src']})
+                    print('ok 2')
+                    return logo_url_map
 
-                logo_url_map.update({'img': img['src']})
-                main_class_attr_name = ''
-                break
+    return logo_url_map
 
-            if img.alt != '':
-                if keyword in img.alt:
-                    main_class_attr_name = img.alt
-                    break
-
-            for class_name in img['class']:
-                if keyword in class_name:
-                    main_class_attr_name = class_name
-                    break
-
-            if main_class_attr_name is not None:
-                break
-
-        if main_class_attr_name is not None:
-            break
-
-    print('class_name :', main_class_attr_name)
-    print('logo_url :', logo_url_map)
 def retrieve_phones(soup: BeautifulSoup):
-
     pass
 
 
@@ -65,6 +53,7 @@ if __name__ == '__main__':
     file_content = sys.stdin.read()
     urls = file_content.split('\n')
     url_map = {}
+    website_infos = []
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
@@ -82,7 +71,9 @@ if __name__ == '__main__':
                 continue
 
             soup = BeautifulSoup(response.text, 'html.parser')
-            retrieve_logo(soup=soup)
+            logo_info = retrieve_logo(soup=soup)
+
+            website_infos.append({'logo': logo_info.get('img'), 'website': url})
 
 
         except Exception as e:
@@ -90,6 +81,7 @@ if __name__ == '__main__':
         print()
 
     print('Unsuccessful URLs', url_map.keys())
+    print('Successful URLs', website_infos)
 
 
 
