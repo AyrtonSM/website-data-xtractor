@@ -1,97 +1,23 @@
 import sys
-from bs4 import BeautifulSoup
-import json
 import requests as rq
-import re
-
-suggested_attrs_by_html_tag = {
-    'div' : ['logo', 'navbar_logo'],
-    'img' : ['logo', 'img_logo', 'light-logo']
-}
-
-
-def retrieve_logo(soup: BeautifulSoup) -> dict:
-    logo_url_map = {'img' : ''}
-
-    keyword = 'logo'
-    anchors = soup.find_all('a')
-
-    for anchor in anchors:
-        imgs = anchor.find_all('img')
-
-        if len(imgs) == 0:
-            continue
-
-        for img in imgs:
-            print(img)
-            if img.has_attr('class'):
-                for class_name in img['class']:
-                    if keyword in class_name:
-                        logo_url_map.update({'img': img['src']})
-                        print('ok 1')
-                        return logo_url_map
-
-            if img.has_attr('alt'):
-                if keyword in img['alt']:
-                    logo_url_map.update({'img': img['src']})
-                    print('ok 3')
-                    return logo_url_map
-
-            if img.has_attr('src'):
-                normalized_src = img['src'].lower()
-                if keyword in normalized_src:
-                    logo_url_map.update({'img': img['src']})
-                    print('ok 2')
-                    return logo_url_map
-
-    return logo_url_map
-
-
-def retrieve_phones(soup: BeautifulSoup):
-    phone_url_map = {'phone_list' : []}
-
-    spans = soup.find_all('span')
-    for span in spans:
-        numbers = re.findall(r'(?:\+?\d{1,3})?\s?\(?\d{1,4}\)?[\s.-]?\d{1,5}[\s.-]?\d{1,5}', span.text)
-        if len(numbers) > 0:
-            for num in numbers:
-                if len(num) >= 8:
-                    phone_url_map.get('phone_list').append(num.strip())
-
-    anchors = soup.find_all('a')
-    for anchor in anchors:
-        if anchor.has_attr('href'):
-            if 'tel:' in anchor['href']:
-                numbers = re.findall(r'(?:\+?\d{1,3})?\s?\(?\d{1,4}\)?[\s.-]?\d{1,5}[\s.-]?\d{1,5}', anchor.text)
-                if len(numbers) > 0:
-                    for num in numbers:
-                        if len(num) >= 8:
-                            phone_url_map.get('phone_list').append(num.strip())
-
-    paragraphs = soup.find_all('p')
-    for paragraph in paragraphs:
-        paragraph = paragraph.text.replace('\n', ' ').strip()
-        numbers = re.findall(r'(?:\+?\d{1,3})?\s?\(?\d{1,4}\)?[\s.-]?\d{1,5}[\s.-]?\d{1,5}', paragraph)
-        if len(numbers) > 0:
-            for num in numbers:
-                if len(num) >= 8:
-                    phone_url_map.get('phone_list').append(num.strip())
-
-    phone_url_map = {'phone_list': list(set(phone_url_map.get('phone_list')))}
-    return phone_url_map
-
+from src.service.image_service import ImageService
+from src.service.phone_service import PhoneService
 
 if __name__ == '__main__':
     file_content = sys.stdin.read()
     urls = file_content.split('\n')
     url_map = {}
     website_infos = []
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
 
+    image_service = ImageService()
+    phone_service = PhoneService()
+
     if urls[-1] == '':
-        urls = urls[:len(urls)-1]
+        urls = urls[:len(urls) - 1]
 
     for url in urls:
         print('Fetching >> ', url)
@@ -102,16 +28,13 @@ if __name__ == '__main__':
                 url_map.update({url: response.text})
                 continue
 
-            soup = BeautifulSoup(response.text, 'html.parser')
-            logo_info = retrieve_logo(soup=soup)
-            phones_info = retrieve_phones(soup=soup)
-
+            logo_info = image_service.retrieve_logo(response.text)
+            phones_info = phone_service.retrieve_phones(response.text)
             website_infos.append({
-                'logo': logo_info.get('img'),
+                'logo': image_service.normalize_path(url=url, image_url=logo_info.get('img')),
                 'website': url,
                 'phones': phones_info.get('phone_list')
             })
-
 
         except Exception as e:
             print('error -> ', str(e))
@@ -119,8 +42,6 @@ if __name__ == '__main__':
 
     print('Unsuccessful URLs', url_map.keys())
     print('Successful URLs', website_infos)
-
-
 
 # https://www.illion.com.au
 # https://www.phosagro.com/contacts
@@ -131,3 +52,4 @@ if __name__ == '__main__':
 # https://www.cmsenergy.com/contact-us/default.aspx
 # https://www.archdaily.com.br/br/905283/casa-do-boi-leo-romano-arquitetura
 # https://www.vivareal.com.br/
+# https://kemlu.go.id/portal/en
