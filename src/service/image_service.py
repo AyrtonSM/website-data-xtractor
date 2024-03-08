@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from src.utils.image_utils import *
 from src.enum.html_name import HtmlName
+import requests as rq
 
 
 class ImageService:
@@ -30,6 +31,50 @@ class ImageService:
                                         logo_url_map=logo_url_map)
 
         return logo_url_map
+
+    def retrieve_logo_parallel(self, content: str, url: str, queue: any, parser: str = 'html.parser'):
+        try:
+
+            # headers = {
+            #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+            # }
+            # content = rq.get(url, headers=headers)
+
+            self._bs_soup = BeautifulSoup(content, parser)
+
+            logo_url_map = {HtmlName.Image.value: ''}
+
+            keyword = 'logo'
+            anchors = self._bs_soup.find_all(HtmlName.Anchor.value)
+
+            for anchor in anchors:
+                imgs = anchor.find_all(HtmlName.Image.value)
+
+                if len(imgs) == 0:
+                    continue
+
+                for img in imgs:
+                    self.build_logo_mapping(keyword=keyword, img=img, attribute=HtmlName.Class.value,
+                                            logo_url_map=logo_url_map)
+                    self.build_logo_mapping(keyword=keyword, img=img, attribute=HtmlName.Alt.value,
+                                            logo_url_map=logo_url_map)
+                    self.build_logo_mapping(keyword=keyword, img=img, attribute=HtmlName.Src.value,
+                                            logo_url_map=logo_url_map)
+
+            logo_url_map.update({
+                    HtmlName.Image.value: self.normalize_path(url=url, image_url=logo_url_map.get(HtmlName.Image.value))
+            })
+
+            queue.put({
+                url: {
+                    'logo': logo_url_map.get(HtmlName.Image.value),
+                    'website': url
+                }
+            })
+
+        except Exception as e:
+            print('-------> ', e)
+
 
     def update_logo_url_map(self, keyword: str, property_content: str, image_src_content: str,
                             logo_url_map: dict) -> (bool, dict):
