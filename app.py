@@ -29,16 +29,14 @@ if __name__ == '__main__':
     urls = file_content.split('\n')
     url_map = {}
     website_infos = []
+
     queue = mp.Queue()
     content_queue = Queue()
-    # singleton_data_context_manager = SingletonDataContextManager()
-    # print(singleton_data_context_manager.get_queue())
 
     image_service = ImageService()
     phone_service = PhoneService()
     urls = [url for url in urls if url != '']
     functions_defs = [image_service.retrieve_logo_parallel, phone_service.retrieve_phones_parallel]
-    # functions_defs = [phone_service.retrieve_phones_parallel]
 
     processes = []
     processes_limit = len(functions_defs)
@@ -83,61 +81,19 @@ if __name__ == '__main__':
         key = list(info.keys())[0]
         value = list(info.values())[0]
 
-        if 'website' in value:
-            site_val['website'] = value['website']
-        if 'logo' in value:
-            site_val['logo'] = value['logo']
-        if 'phones' in value:
-            site_val['phones'] = value['phones']
+        if key not in site_val:
+            site_val[key] = value
+        else:
+            for k, v in value.items():
+                existing_mapping = site_val[key]
+                if k not in existing_mapping:
+                    site_val[key].update({k: v})
 
-        if 'website' in site_val and 'logo' in site_val and 'phones' in site_val:
-            updated_attrs.append(site_val)
-            site_val = {}
+    for v in site_val.values():
+        updated_attrs.append(v)
 
     print(updated_attrs)
 
-    # updated_attrs = []
-    # data = {}
-    # current_key = ''
-    # for key, value in site_val.items():
-    #     if current_key != key.split('_')[0]:
-    #         if data:
-    #             updated_attrs.append(data)
-    #         current_key = key.split('_')[0]
-    #
-    #     key_name = key.split('_')[1]
-    #     data[key_name] = value
-    #
-    #
-    # print(updated_attrs)
-
-
-    # for url in urls:
-    #     if url == '':
-    #         continue
-    #
-    #     print('Fetching >> ', url)
-    #     try:
-    #         response = rq.get(url, headers=headers)
-    #         print('status_code >> ', response.status_code)
-    #         if response.status_code in [400, 500, 403]:
-    #             url_map.update({url: response.text})
-    #             continue
-    #
-    #         logo_info = image_service.retrieve_logo(response.text)
-    #         phones_info = phone_service.retrieve_phones(response.text)
-    #         website_infos.append({
-    #             'logo': image_service.normalize_path(url=url, image_url=logo_info.get('img')),
-    #             'website': url,
-    #             'phones': phones_info.get('phone_list')
-    #         })
-    #
-    #     except Exception as e:
-    #         print('error -> ', str(e))
-    #     print()
-    #
-    # print('Unsuccessful URLs', url_map.keys())
-    # print('Successful URLs', website_infos)
 
 # https://www.illion.com.au
 # https://www.phosagro.com/contacts

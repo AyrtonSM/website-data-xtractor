@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from src.utils.image_utils import *
 from src.enum.html_name import HtmlName
-import requests as rq
 
 
 class ImageService:
@@ -34,12 +33,6 @@ class ImageService:
 
     def retrieve_logo_parallel(self, content: str, url: str, queue: any, parser: str = 'html.parser'):
         try:
-
-            # headers = {
-            #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-            # }
-            # content = rq.get(url, headers=headers)
-
             self._bs_soup = BeautifulSoup(content, parser)
 
             logo_url_map = {HtmlName.Image.value: ''}
@@ -62,7 +55,7 @@ class ImageService:
                                             logo_url_map=logo_url_map)
 
             logo_url_map.update({
-                    HtmlName.Image.value: self.normalize_path(url=url, image_url=logo_url_map.get(HtmlName.Image.value))
+                HtmlName.Image.value: self.normalize_path(url=url, image_url=logo_url_map.get(HtmlName.Image.value))
             })
 
             queue.put({
@@ -74,7 +67,6 @@ class ImageService:
 
         except Exception as e:
             print('-------> ', e)
-
 
     def update_logo_url_map(self, keyword: str, property_content: str, image_src_content: str,
                             logo_url_map: dict) -> (bool, dict):

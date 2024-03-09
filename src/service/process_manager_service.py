@@ -1,6 +1,5 @@
 
 import threading
-import requests as rq
 class ProcessManagerService:
 
     def run_threads(self, function: callable, data: dict, queue: any, thread_count: int = 10):
