@@ -22,6 +22,4 @@ def phone_cleansing(phone: str) -> str:
 
                 phone_cleansed += ' '
 
-    print(phone_cleansed)
-
     return phone_cleansed
