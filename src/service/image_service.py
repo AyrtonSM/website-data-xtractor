@@ -68,7 +68,8 @@ class ImageService:
         except Exception as e:
             print('-------> ', e)
 
-    def update_logo_url_map(self, keyword: str, property_content: str, image_src_content: str,
+    @staticmethod
+    def update_logo_url_map(keyword: str, property_content: str, image_src_content: str,
                             logo_url_map: dict) -> (bool, dict):
         if keyword in property_content:
             logo_url_map.update({HtmlName.Image.value: image_src_content})

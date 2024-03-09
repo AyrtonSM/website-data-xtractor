@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 from src.utils.phone_utils import *
 from src.enum.html_name import HtmlName
 import re
-import requests as rq
 
 
 class PhoneService:
