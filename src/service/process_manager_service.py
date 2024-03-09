@@ -1,12 +1,12 @@
-
 import threading
+
 class ProcessManagerService:
 
     def run_threads(self, function: callable, data: dict, queue: any, thread_count: int = 10):
 
         thread_pool = []
 
-        for page in data['page_map']:
+        for page in data['contents']:
             url = page['url']
             content = page['content']
 
