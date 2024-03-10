@@ -3,8 +3,8 @@
         "logo": "https://www.powerlinx.com/wp-content/uploads/2022/09/LOGO-1.svg",
         "website": "https://www.powerlinx.com/contact",
         "phones": [
-            "2011-2024",
-            "+1 (212) 465-9555"
+            "+1 (212) 465-9555",
+            "2011-2024"
         ]
     },
     {
@@ -16,17 +16,12 @@
         "logo": "https://s26.q4cdn.com/888045447/files/design/ClientLogo.png",
         "website": "https://www.cmsenergy.com/contact-us/default.aspx",
         "phones": [
-            "03 08 24",
-            "(517) 788-2395",
+            "(517) 768-3376",
             "(517) 788-2394",
             "(517) 788-0550",
-            "(517) 768-3376"
+            "03 08 24",
+            "(517) 788-2395"
         ]
-    },
-    {
-        "logo": "",
-        "website": "https://www.cialdnb.com/en",
-        "phones": []
     },
     {
         "logo": "https://www.illion.com.au/wp-content/uploads/2023/08/DB_WN_logo_2-1.png",
@@ -41,13 +36,18 @@
         ]
     },
     {
+        "logo": "",
+        "website": "https://www.cialdnb.com/en",
+        "phones": []
+    },
+    {
         "logo": "https://www.illion.com.au/wp-content/uploads/2023/08/DB_WN_logo_2-1.png",
         "website": "https://www.illion.com.au/contact-us",
         "phones": [
-            "+61 3 9828 3200",
-            "13 23 33",
             "(0800 836268",
-            "1800 233 533"
+            "1800 233 533",
+            "13 23 33",
+            "+61 3 9828 3200"
         ]
     },
     {
@@ -56,21 +56,21 @@
         "phones": []
     },
     {
-        "logo": "https://cdn1.vivareal.com/p/1-6d278c6/v/static/app/svg/styleguide/logo/vivareal-blue.svg",
-        "website": "https://www.vivareal.com.br/",
+        "logo": "https://www.kitano.com.br/wp-content/themes/avalanche/dist/images/kitano-logo.svg",
+        "website": "https://www.kitano.com.br/receitas/frango-assado-com-salsa-e-cebolinha/",
         "phones": []
     },
     {
-        "logo": "https://www.kitano.com.br/wp-content/themes/avalanche/dist/images/kitano-logo.svg",
-        "website": "https://www.kitano.com.br/receitas/frango-assado-com-salsa-e-cebolinha/",
+        "logo": "https://cdn1.vivareal.com/p/1-6d278c6/v/static/app/svg/styleguide/logo/vivareal-blue.svg",
+        "website": "https://www.vivareal.com.br/",
         "phones": []
     },
     {
         "logo": "https://assets.adsttc.com/doodles/womens-day-logo.svg",
         "website": "https://www.archdaily.com.br/br/905283/casa-do-boi-leo-romano-arquitetura",
         "phones": [
-            "2008-2024",
-            "0719-8906"
+            "0719-8906",
+            "2008-2024"
         ]
     },
     {

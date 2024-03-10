@@ -7,6 +7,7 @@ import multiprocessing as mp
 import json
 import logging as logger
 
+
 class XTractorService:
 
     def __init__(self, urls: list):
@@ -17,7 +18,8 @@ class XTractorService:
             self._image_service.retrieve_logo_parallel,
             self._phone_service.retrieve_phones_parallel
         ]
-
+        logger.debug(urls)
+        urls = [url.replace('\r', '') for url in urls if url.replace('\r', '') != '']
         _processes_limit = len(self._function_definitions)
         _partition_size = int(len(urls) / _processes_limit) + 1
         self._urls_partitioned = [urls[i * _partition_size: (i + 1) * _partition_size] for i in range(_processes_limit)]
