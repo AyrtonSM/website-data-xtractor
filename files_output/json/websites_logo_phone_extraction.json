@@ -3,19 +3,19 @@
         "logo": "https://www.powerlinx.com/wp-content/uploads/2022/09/LOGO-1.svg",
         "website": "https://www.powerlinx.com/contact",
         "phones": [
-            "2011-2024",
-            "(212) 465-9555"
+            "(212) 465-9555",
+            "2011-2024"
         ]
     },
     {
         "logo": "https://s26.q4cdn.com/888045447/files/design/ClientLogo.png",
         "website": "https://www.cmsenergy.com/contact-us/default.aspx",
         "phones": [
-            "(517) 788-0550",
             "(517) 768-3376",
-            "683  03 08",
+            "(517) 788-0550",
             "03 08 24 04",
             "(517) 788-2394",
+            "683  03 08",
             "(517) 788-2395"
         ]
     },
@@ -46,9 +46,9 @@
         "website": "https://www.illion.com.au/contact-us",
         "phones": [
             "(0800 836268",
+            "+61 3 9828 3200",
             "1800 233 533",
-            "13 23 33",
-            "+61 3 9828 3200"
+            "13 23 33"
         ]
     },
     {
@@ -67,18 +67,18 @@
         "phones": []
     },
     {
+        "logo": "https://assets.adsttc.com/doodles/womens-day-logo.svg",
+        "website": "https://www.archdaily.com.br/br/905283/casa-do-boi-leo-romano-arquitetura",
+        "phones": [
+            "2008-2024",
+            "0719-8906"
+        ]
+    },
+    {
         "logo": "https://kemlu.go.id/images/logo_kemenlu.png",
         "website": "https://kemlu.go.id/portal/en",
         "phones": [
             "(+62) 21 344 1508"
-        ]
-    },
-    {
-        "logo": "https://assets.adsttc.com/doodles/womens-day-logo.svg",
-        "website": "https://www.archdaily.com.br/br/905283/casa-do-boi-leo-romano-arquitetura",
-        "phones": [
-            "0719-8906",
-            "2008-2024"
         ]
     }
 ]
