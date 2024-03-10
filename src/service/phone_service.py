@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from src.utils.phone_utils import *
 from src.enum.html_name import HtmlName
 import re
+from src.utils.logging_utils import *
 
 
 class PhoneService:
@@ -41,7 +42,7 @@ class PhoneService:
                 }
             })
         except Exception as e:
-            print('--> ', e)
+            logger.error(e)
 
     @staticmethod
     def _find_phones_by_regex(content: str, phone_url_map: dict):
