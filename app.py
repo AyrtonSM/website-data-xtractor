@@ -1,5 +1,6 @@
 import sys
 from src.service.xtractor_service import XTractorService
+from src.utils.logging_utils import *
 
 if __name__ == '__main__':
     file_content = sys.stdin.read()
@@ -9,7 +10,7 @@ if __name__ == '__main__':
     xtractor_service = XTractorService(urls=urls)
     a = xtractor_service.extract()
 
-    print(a)
+    logger.info('%s', a)
 
 
 # https://www.illion.com.au

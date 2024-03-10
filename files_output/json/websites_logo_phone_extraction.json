@@ -1,27 +1,27 @@
 [
     {
-        "logo": "https://s26.q4cdn.com/888045447/files/design/ClientLogo.png",
-        "website": "https://www.cmsenergy.com/contact-us/default.aspx",
-        "phones": [
-            "(517) 788-2395",
-            "(517) 788-2394",
-            "03 08 24",
-            "(517) 768-3376",
-            "(517) 788-0550"
-        ]
-    },
-    {
         "logo": "https://www.powerlinx.com/wp-content/uploads/2022/09/LOGO-1.svg",
         "website": "https://www.powerlinx.com/contact",
         "phones": [
-            "+1 (212) 465-9555",
-            "2011-2024"
+            "2011-2024",
+            "+1 (212) 465-9555"
         ]
     },
     {
         "logo": "https://assets-global.website-files.com/6565e3883754fd9af40aeda7/658051257d6e9c5aa3c0e1e0_dnb%20logo-01.webp",
         "website": "https://en.cialdnb.com/",
         "phones": []
+    },
+    {
+        "logo": "https://s26.q4cdn.com/888045447/files/design/ClientLogo.png",
+        "website": "https://www.cmsenergy.com/contact-us/default.aspx",
+        "phones": [
+            "03 08 24",
+            "(517) 788-2395",
+            "(517) 788-2394",
+            "(517) 788-0550",
+            "(517) 768-3376"
+        ]
     },
     {
         "logo": "",
@@ -44,10 +44,10 @@
         "logo": "https://www.illion.com.au/wp-content/uploads/2023/08/DB_WN_logo_2-1.png",
         "website": "https://www.illion.com.au/contact-us",
         "phones": [
-            "(0800 836268",
-            "1800 233 533",
             "+61 3 9828 3200",
-            "13 23 33"
+            "13 23 33",
+            "(0800 836268",
+            "1800 233 533"
         ]
     },
     {
@@ -56,20 +56,13 @@
         "phones": []
     },
     {
-        "logo": "https://kemlu.go.id/images/logo_kemenlu.png",
-        "website": "https://kemlu.go.id/portal/en",
-        "phones": [
-            "(+62) 21 344"
-        ]
+        "logo": "https://cdn1.vivareal.com/p/1-6d278c6/v/static/app/svg/styleguide/logo/vivareal-blue.svg",
+        "website": "https://www.vivareal.com.br/",
+        "phones": []
     },
     {
         "logo": "https://www.kitano.com.br/wp-content/themes/avalanche/dist/images/kitano-logo.svg",
         "website": "https://www.kitano.com.br/receitas/frango-assado-com-salsa-e-cebolinha/",
-        "phones": []
-    },
-    {
-        "logo": "https://cdn1.vivareal.com/p/1-6d278c6/v/static/app/svg/styleguide/logo/vivareal-blue.svg",
-        "website": "https://www.vivareal.com.br/",
         "phones": []
     },
     {
@@ -78,6 +71,13 @@
         "phones": [
             "2008-2024",
             "0719-8906"
+        ]
+    },
+    {
+        "logo": "https://kemlu.go.id/images/logo_kemenlu.png",
+        "website": "https://kemlu.go.id/portal/en",
+        "phones": [
+            "(+62) 21 344"
         ]
     }
 ]

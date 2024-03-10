@@ -1,16 +1,14 @@
 import threading
 
+
 class ProcessManagerService:
 
-    def run_threads(self, function: callable, data: dict, queue: any, thread_count: int = 10):
+    def run_threads(self, function: callable, data: dict, queue: any):
 
         thread_pool = []
 
         for page in data['contents']:
-            url = page['url']
-            content = page['content']
-
-            function_args = (content, url, queue)
+            function_args = (page['content'], page['url'], queue)
             thread = threading.Thread(target=function, args=function_args)
             thread_pool.append(thread)
             thread.start()

@@ -1,6 +1,7 @@
 from queue import Queue
 import threading as th
 import requests as rq
+from src.utils.logging_utils import *
 
 
 class RequestService:
@@ -31,9 +32,7 @@ class RequestService:
         return contents
 
     def _fetch_content(self, url: str, queue: any):
-        print('Retrieving contents for page: ', url)
         content = rq.get(url, headers=self._headers).text
-        print('Done retrieving contents for page: ', url)
         queue.put({
             'url': url,
             'content': content

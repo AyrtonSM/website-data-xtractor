@@ -5,7 +5,7 @@ from src.service.phone_service import PhoneService
 from src.utils.string_utils import *
 import multiprocessing as mp
 import json
-
+import logging as logger
 
 class XTractorService:
 
@@ -31,12 +31,12 @@ class XTractorService:
         if export_to_json:
             if not is_non_null_nor_empty(filename):
                 filename = 'websites_logo_phone_extraction.json'
-                print('filename is null or empty, using default "websites_logo_phone_extraction.json" name instead')
+                logger.warning('File name is null or empty, using default name instead')
 
             path = f'files_output/json/{filename}'
             with open(path, 'w') as file:
                 file.writelines(json.dumps(websites_information, indent=4))
-                print(f'Data extraction saved at {path}')
+                logger.info('Data extraction saved at %s', path)
 
         return websites_information
 
@@ -67,7 +67,7 @@ class XTractorService:
         for partition in self._urls_partitioned:
             contents = request_service.fetch_multiple_url(partition)
             for function_def in self._function_definitions:
-                args = (function_def, {'contents': contents}, self._queue, len(partition),)
+                args = (function_def, {'contents': contents}, self._queue, )
                 process = mp.Process(target=process_manager_service.run_threads, args=args)
                 processes.append(process)
                 process.start()
