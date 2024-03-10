@@ -19,12 +19,16 @@ class XTractorService:
             self._phone_service.retrieve_phones_parallel
         ]
 
-        urls = [url.replace('\r', '') for url in urls if url.replace('\r', '') != '']
+        self._urls = [url.replace('\r', '') for url in urls if url.replace('\r', '') != '']
         _processes_limit = len(self._function_definitions)
-        _partition_size = int(len(urls) / _processes_limit) + 1
-        self._urls_partitioned = [urls[i * _partition_size: (i + 1) * _partition_size] for i in range(_processes_limit)]
-        if len(self._urls_partitioned[-1]) == 0:
-            self._urls_partitioned = self._urls_partitioned[:-1]
+        _partition_size = 100
+        if _partition_size < len(self._urls):
+            self._urls_partitioned = [self._urls[i * _partition_size: (i + 1) * _partition_size] for i in range(int(len(self._urls) / _partition_size))]
+            if len(self._urls_partitioned[-1]) == 0:
+                self._urls_partitioned = self._urls_partitioned[:-1]
+        else:
+            self._urls_partitioned = [self._urls]
+
 
     def extract(self, export_to_json: bool = True, filename: str = 'websites_logo_phone_extraction.json'):
         websites_information = self._extract_websites_information()

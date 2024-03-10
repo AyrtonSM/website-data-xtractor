@@ -1,57 +1,5 @@
 [
     {
-        "logo": "https://www.powerlinx.com/wp-content/uploads/2022/09/LOGO-1.svg",
-        "website": "https://www.powerlinx.com/contact",
-        "phones": [
-            "(212) 465-9555",
-            "2011-2024"
-        ]
-    },
-    {
-        "logo": "https://s26.q4cdn.com/888045447/files/design/ClientLogo.png",
-        "website": "https://www.cmsenergy.com/contact-us/default.aspx",
-        "phones": [
-            "(517) 768-3376",
-            "(517) 788-0550",
-            "03 08 24 04",
-            "(517) 788-2394",
-            "683  03 08",
-            "(517) 788-2395"
-        ]
-    },
-    {
-        "logo": "https://assets-global.website-files.com/6565e3883754fd9af40aeda7/658051257d6e9c5aa3c0e1e0_dnb%20logo-01.webp",
-        "website": "https://en.cialdnb.com/",
-        "phones": []
-    },
-    {
-        "logo": "https://www.illion.com.au/wp-content/uploads/2023/08/DB_WN_logo_2-1.png",
-        "website": "https://www.illion.com.au",
-        "phones": []
-    },
-    {
-        "logo": "",
-        "website": "https://www.cialdnb.com/en",
-        "phones": []
-    },
-    {
-        "logo": "https://www.phosagro.com//local/templates/.default/img/fosagro-logo-en--coloured.svg",
-        "website": "https://www.phosagro.com/contacts",
-        "phones": [
-            "(800) 234-29-00"
-        ]
-    },
-    {
-        "logo": "https://www.illion.com.au/wp-content/uploads/2023/08/DB_WN_logo_2-1.png",
-        "website": "https://www.illion.com.au/contact-us",
-        "phones": [
-            "(0800 836268",
-            "+61 3 9828 3200",
-            "1800 233 533",
-            "13 23 33"
-        ]
-    },
-    {
         "logo": "",
         "website": "https://www.tudogostoso.com.br/receita/80686-massa-de-coxinha-facil-da-andriele.html",
         "phones": []
@@ -59,11 +7,6 @@
     {
         "logo": "https://cdn1.vivareal.com/p/1-6d278c6/v/static/app/svg/styleguide/logo/vivareal-blue.svg",
         "website": "https://www.vivareal.com.br/",
-        "phones": []
-    },
-    {
-        "logo": "https://www.kitano.com.br/wp-content/themes/avalanche/dist/images/kitano-logo.svg",
-        "website": "https://www.kitano.com.br/receitas/frango-assado-com-salsa-e-cebolinha/",
         "phones": []
     },
     {
@@ -75,10 +18,155 @@
         ]
     },
     {
+        "logo": "https://assets-global.website-files.com/6565e3883754fd9af40aeda7/658051257d6e9c5aa3c0e1e0_dnb%20logo-01.webp",
+        "website": "https://en.cialdnb.com/",
+        "phones": []
+    },
+    {
+        "logo": "",
+        "website": "https://www.espn.com.br/futebol/jogador/_/id/22774/cristiano-ronaldo",
+        "phones": []
+    },
+    {
+        "logo": "https://static.xx.fbcdn.net/rsrc.php/y1/r/4lCu2zih0ca.svg",
+        "website": "https://www.facebook.com/",
+        "phones": []
+    },
+    {
+        "logo": "https://s26.q4cdn.com/888045447/files/design/ClientLogo.png",
+        "website": "https://www.cmsenergy.com/contact-us/default.aspx",
+        "phones": [
+            "(517) 788-0550",
+            "(517) 788-2394",
+            "(517) 788-2395",
+            "(517) 768-3376",
+            "683  03 08",
+            "03 08 24 04"
+        ]
+    },
+    {
+        "logo": "https://www.powerlinx.com/wp-content/uploads/2022/09/LOGO.svg",
+        "website": "https://www.powerlinx.com/contact",
+        "phones": [
+            "2011-2024",
+            "(212) 465-9555"
+        ]
+    },
+    {
+        "logo": "https://www.google.com//images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png",
+        "website": "https://www.google.com/",
+        "phones": []
+    },
+    {
+        "logo": "https://www.kitano.com.br/wp-content/themes/avalanche/dist/images/kitano-logo.svg",
+        "website": "https://www.kitano.com.br/receitas/frango-assado-com-salsa-e-cebolinha/",
+        "phones": []
+    },
+    {
         "logo": "https://kemlu.go.id/images/logo_kemenlu.png",
         "website": "https://kemlu.go.id/portal/en",
         "phones": [
             "(+62) 21 344 1508"
+        ]
+    },
+    {
+        "logo": "https://www.illion.com.au/wp-content/uploads/2019/03/ION-RGB-Gradient-64.png",
+        "website": "https://www.illion.com.au",
+        "phones": []
+    },
+    {
+        "logo": "https://www.illion.com.au/wp-content/uploads/2019/03/ION-RGB-Gradient-64.png",
+        "website": "https://www.illion.com.au/contact-us",
+        "phones": [
+            "13 23 33",
+            "(0800 836268)",
+            "1800 233 533",
+            "+61 3 9828 3200"
+        ]
+    },
+    {
+        "logo": "https://assets-global.website-files.com/6565e3883754fd9af40aeda7/6565e3883754fd9af40aef5f_dnb_logo_worldwide_network.webp",
+        "website": "https://www.cialdnb.com/en",
+        "phones": []
+    },
+    {
+        "logo": "https://ja.wikipedia.org//static/images/icons/wikipedia.png",
+        "website": "https://ja.wikipedia.org/wiki/NARUTO_-%E3%83%8A%E3%83%AB%E3%83%88-",
+        "phones": [
+            "20190707",
+            "20121203",
+            "20220427",
+            "1000157450",
+            "955709 2022",
+            "000000044 000071197",
+            "200003000",
+            "1000157450 2019",
+            "349241 2022",
+            "87477 2022",
+            "256171 2022",
+            "1472075401446969347",
+            "1443175 2022",
+            "20101125",
+            "14408 2022",
+            "188181 2016",
+            "0170504001",
+            "20220719083219",
+            "505537 2023",
+            "000000116 000002734",
+            "2010 2022",
+            "533168 2023",
+            "2009 2022",
+            "1910838 2022",
+            "483714 2022",
+            "17286888",
+            "2101041016",
+            "20080116",
+            "000011763",
+            "00110101",
+            "341526 2022",
+            "20140326",
+            "000000725 000001735",
+            "2012 2022",
+            "14492 2023",
+            "20141110175934",
+            "25380 2022",
+            "000000025 000071197",
+            "400360 2022",
+            "20130314",
+            "20120721",
+            "200004000",
+            "20230407161744",
+            "000000000000000",
+            "12246 2022",
+            "20120114",
+            "140777 2023",
+            "545137 2024",
+            "2008 2022",
+            "20141006",
+            "20141215104758",
+            "20150212",
+            "0014091988",
+            "20230524",
+            "000000724 000014511",
+            "20141110",
+            "000015152",
+            "102745 2022",
+            "71431 2023",
+            "201711190000001",
+            "213671 2016",
+            "473598 2022",
+            "07000958",
+            "200006000",
+            "374905 2023",
+            "498655 2022",
+            "327046 2020",
+            "0150401007",
+            "20220106",
+            "20141110 2022",
+            "3235501 2022",
+            "214089 2016",
+            "0029453 2022",
+            "327864 2023"
         ]
     }
 ]

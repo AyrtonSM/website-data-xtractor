@@ -3,8 +3,23 @@
 The project consists of given a file of websites listing, extract the available logo url
 any possible phones that might exist in the page, and also the website name. 
 
+## Brief Technical Overview
+
+The program uses multiprocessing and multithreading.
+The main idea is to read all the urls in the file, divide them into K partitions,
+each partition representing an action we want to take. For this project, since the program will
+retrieve logos and phone numbers, K = 2. Therefore, the program will create 2 processes dedicated 
+for the task.
+
+Partitions will be created if more than 100 websites are passed just to simulate the idea of thousands
+of files coming in. But should be increased/decreased depending on the computer configuration
+
+Once the partitions are read, threads will be used to retrieve the data in parallel, and then be passed 
+to each process, the one responsible for scrapping the 
+
 The project was build using Python 3.12, and one can execute the project by executing 
 any of the following approaches.
+
 
 ## Using Docker
 Before proceeding execute your docker daemon. Once it has started do the following
