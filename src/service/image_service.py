@@ -3,6 +3,7 @@ from src.utils.image_utils import *
 from src.enum.html_name import HtmlName
 from src.utils.logging_utils import *
 
+
 class ImageService:
     _bs_soup = None
 

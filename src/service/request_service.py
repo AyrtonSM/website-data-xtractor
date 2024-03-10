@@ -1,7 +1,6 @@
 from queue import Queue
 import threading as th
 import requests as rq
-from src.utils.logging_utils import *
 
 
 class RequestService:
