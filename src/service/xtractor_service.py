@@ -18,7 +18,7 @@ class XTractorService:
             self._image_service.retrieve_logo_parallel,
             self._phone_service.retrieve_phones_parallel
         ]
-        logger.debug(urls)
+
         urls = [url.replace('\r', '') for url in urls if url.replace('\r', '') != '']
         _processes_limit = len(self._function_definitions)
         _partition_size = int(len(urls) / _processes_limit) + 1

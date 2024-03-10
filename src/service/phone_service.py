@@ -46,7 +46,7 @@ class PhoneService:
 
     @staticmethod
     def _find_phones_by_regex(content: str, phone_url_map: dict):
-        numbers = re.findall(r'(?:\(?\+?\d{1,3})?\s?\(?\d{1,4}\)?[\s.-]?\d{1,7}[\s.-]?\d{1,7}', content)
+        numbers = re.findall(r'\+?(?:\(?\+?\d{1,3})?\)?\s?\(?\d{1,4}\)?\d{1,7}?[\s.-]?\s?\d{1,7}[\s.-]?\d{1,7}\)?\s?\d{1,7}', content)
         if len(numbers) > 0:
             for num in numbers:
                 if len(num) >= 8:
