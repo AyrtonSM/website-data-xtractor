@@ -34,6 +34,9 @@ Main files are located in the service layer
 - image_service.py
 - phone_service.py
 
+[Solution Overview Design](https://github.com/AyrtonSM/website-data-xtractor/blob/main/website-data-xtractor.svg)
+
+
 ## Execution
 
 
